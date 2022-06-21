@@ -15,9 +15,10 @@
    },
    "scripts": {
       "start": "node --loader ts-node/esm src/index.ts",
-      "migration:create": "node --loader ts-node/esm ./node_modules/.bin/typeorm migration:create",
-      "migration:generate": "node --loader ts-node/esm ./node_modules/.bin/typeorm migration:generate -d ./src/data-source.ts",
-      "migration:up": "node --loader ts-node/esm ./node_modules/.bin/typeorm migration:run -d ./src/data-source.ts",
-      "migration:down": "node --loader ts-node/esm ./node_modules/.bin/typeorm migration:revert -d ./src/data-source.ts"
+      "typeorm": "ts-node ./node_modules/.bin/typeorm",
+      "migration:create": "npm run typeorm -- migration:create",
+      "migration:generate": "npm run typeorm -- migration:generate -d ./src/data-source.ts",
+      "migration:up": "npm run typeorm -- migration:run -d ./src/data-source.ts",
+      "migration:down": "npm run typeorm -- migration:revert -d ./src/data-source.ts"
    }
 }
